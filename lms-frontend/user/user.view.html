@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="app-content/demo.css" />
+		<link rel="stylesheet" type="text/css" href="app-content/common.css" />
+        <link rel="stylesheet" type="text/css" href="app-content/style2.css" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
+		<script type="text/javascript" src="js/modernizr.custom.79639.js"></script> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body ng-controller="HomeController as vm">
+      <div class="bs-example">
+    <form>
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button data-toggle="dropdown" class="btn btn-success dropdown-toggle" type="button">
+                    Search
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="vm.searchname(searchparam)">By Book Name</a></li>
+                    <li class="divider"></li>
+                    <li><a ng-click="vm.searchauthor(searchparam)">By Book Author</a></li>
+                    <li class="divider"></li>
+                    <li><a ng-click="vm.searchlang(searchparam)">By Book Language</a></li>
+                </ul>
+            </div>
+            <input type="text" class="form-control" ng-model="searchparam">
+        </div>
+    </form>
+</div>
+<div class="container">						
+			<section class="main">
+			
+				<ul class="ch-grid">
+					<li>
+						<div class="ch-item ch-img-1">
+							<div class="ch-info">
+                                <h3>Explore Books</h3><br>
+                                <a href="#!/explore-author">by Author</a>
+							</div>
+						</div>
+                    </li>
+                    <li>
+						<div class="ch-item ch-img-2">
+							<div class="ch-info">
+                                <h3>Explore Books</h3><br>
+                                <a href="#!/explore-genre">by Genre</a>
+								
+							</div>
+						</div>
+                    </li>
+                    <br>
+                    <br>
+					<li>
+						<div class="ch-item ch-img-3">
+							<div class="ch-info">
+								<h3><a href="#!/user/seeissued">View Issued Books</a></h3>
+
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ch-item ch-img-4">
+							<div class="ch-info">
+								<h3><a href="#!/user/issue">Issue Books</a></h3>
+								
+							</div>
+						</div>
+					</li>
+                </ul>
+			</section>
+        </div>
+        <div>
+                <p class="alignleft"><a href="#!/user-update" class="btn btn-primary">View and Update Details</a></p>
+                <p class="alignright"><a href="#!/login" class="btn btn-primary">Logout</a></p>
+        </div>
+        <div style="clear: both;"></div>
+    </body>
+</html>

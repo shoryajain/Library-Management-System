@@ -1,0 +1,24 @@
+﻿<head>
+    <br>
+</head>
+<table class="table table-bordered table-hover table-responsive table-striped">
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Language</th>
+                <th>ISBN</th>
+                <th>Genre</th>
+                <th>Edition</th>
+
+             <tr ng-repeat="book in vm.books">  
+                <td>{{book.name}}</td>
+                <td>{{book.author.name}}</td>
+                <td>{{book.lang}}</td>
+                <td>{{book.isbn}}</td>
+                <td>{{book.genre}}</td>
+                <td>{{book.edition}}</td>
+             </tr>
+        </table>
+        <p>&nbsp;</p>
+<p class="alignleft" ng-show="vm.check1"><a href="#!/user" class="btn btn-primary">Go Back</a></p>
+<p class="alignleft" ng-hide="vm.check1"><a href="#!/admin" class="btn btn-primary">Go Back</a></p>
+<p class="alignright"><a href="#!/login" class="btn btn-primary">Logout</a></p>

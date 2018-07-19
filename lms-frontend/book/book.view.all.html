@@ -1,0 +1,28 @@
+﻿<h3>All registered books:</h3>
+<head>
+    <br>
+</head>
+<table class="table table-bordered table-hover table-responsive table-striped">
+                <th>Name</th>
+                <th>Author's Name</th>
+                <th>Language</th>
+                <th>ISBN</th>
+                <th>Genre</th>
+                <th>Edition</th>
+                <th>Copies</th>
+                <th>Issued Copies</th>
+
+             <tr ng-repeat="book in vm.allBooks">  
+                <td>{{book.name}}</td>
+                <td>{{book.author.name}}</td>
+                <td>{{book.lang}}</td>
+                <td>{{book.isbn}}</td>
+                <td>{{book.genre}}</td>
+                <td>{{book.edition}}</td>
+                <td>{{book.copies}}</td>
+                <td>{{book.icopies}}</td>
+             </tr>
+        </table>
+<p>&nbsp;</p>
+<p class="alignleft"><a href="#!/admin" class="btn btn-primary">Back to Home Page</a></p>
+<p class="alignright"><a href="#!/login" class="btn btn-primary">Logout</a></p>

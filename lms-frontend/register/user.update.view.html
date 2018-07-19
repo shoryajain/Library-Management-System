@@ -1,0 +1,45 @@
+<div class="col-md-6 col-md-offset-3">
+    <h2>Update Details</h2>
+    <form name="form" ng-submit="vm.userupdate()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.uname.$dirty && form.uname.$error.required }">
+            <label for="uname">Username</label> 
+            <input type="text" name="uname" id="uname" class="form-control" ng-model="vm.user.uname" ng-readonly="true" />
+            <span ng-show="form.uname.$dirty && form.uname.$error.required" class="help-block">Username is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.fname.$dirty && form.fname.$error.required }">
+            <label for="fname">First name</label>
+            <input type="text" name="fname" id="fname" class="form-control" ng-model="vm.user.fname" ng-readonly="truefalse" required />
+            <span ng-show="form.fname.$dirty && form.fname.$error.required" class="help-block">First name is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.lname.$dirty && form.lname.$error.required }">
+            <label for="lname">Last name</label>
+            <input type="text" name="lname" id="lname" class="form-control" ng-model="vm.user.lname" ng-readonly="truefalse" required />
+            <span ng-show="form.lname.$dirty && form.lname.$error.required" class="help-block">Last name is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.pass.$dirty && form.pass.$error.required }">
+            <label for="pass">Password</label>
+            <input type="password" name="pass" id="pass" class="form-control" ng-model="vm.user.pass" ng-readonly="truefalse" required />
+            <span ng-show="form.pass.$dirty && form.pass.$error.required" class="help-block">Password is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.age.$dirty && form.age.$error.required }">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" class="form-control" ng-model="vm.user.age" ng-readonly="truefalse" required />
+            <span ng-show="form.age.$dirty && form.age.$error.required" class="help-block">Age is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+            <label for="email">Email Id</label>
+            <input type="email" name="email" id="email" class="form-control" ng-model="vm.user.email" ng-readonly="truefalse" required />
+            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email Id is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.pno.$dirty && form.pno.$error.required }">
+            <label for="pno">Phone Number</label>
+            <input type="tel" name="pno" id="pno" class="form-control" ng-model="vm.user.pno" ng-readonly="truefalse" required />
+            <span ng-show="form.pno.$dirty && form.pno.$error.required" class="help-block">Phone Number is required</span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Update</button>
+            <img ng-if="vm.dataLoading" src="data:imedition/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a href="#!/user" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+</div>

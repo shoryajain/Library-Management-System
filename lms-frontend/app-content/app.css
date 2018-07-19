@@ -1,0 +1,31 @@
+﻿a {
+    cursor: pointer;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #8cd6ec;
+ }
+
+ .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #5f99cc; 
+  }
+
+  .jumbotron {
+    padding: 30px;
+    margin-bottom: 0px;
+    color: whitesmoke;
+    font-weight: 200;
+    background-image: url(../images/bg.jpg);
+  } 
+
+  .alignleft {
+    float: left;
+  }
+  .alignright {
+    float: right;
+  }
+  
+
+
+

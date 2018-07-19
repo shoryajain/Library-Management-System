@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link href="app-content/app.css" rel="stylesheet" />
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+     </style>
+</head>
+<body class="ng-cloak jumbotron">
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                <div ng-view></div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <footer class="text-center">
+        <p>
+                Library Management System
+        </p>
+        <p>
+                Developed by <a href="https://github.com/shoryajain">Shorya Jain</a>
+        </p>
+        </footer>
+
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
+    
+    <script src="app.js"></script>
+    <script src="app-services/authentication.service.js"></script>
+    <script src="app-services/flash.service.js"></script>
+    <script src="app-services/user.service.js"></script> 
+    <script src="app-services/author.service.js"></script> 
+    <script src="app-services/book.service.js"></script> 
+
+    <script src="user/user.controller.js"></script>
+    <script src="user/user.search.controller.js"></script>
+    <script src="author/author.controller.js"></script>
+    <script src="book/book.controller.js"></script>
+    <script src="book/book.explore.controller.js"></script>
+    <script src="admin/admin.controller.js"></script>
+    <script src="admin/admin.landing.controller.js"></script>
+    <script src="admin/admin.issue.controller.js"></script>
+    <script src="login/login.controller.js"></script>
+    <script src="register/register.controller.js"></script> 
+    <script src="register/user.update.controller.js"></script> 
+    <script src="register/author.register.controller.js"></script>
+    <script src="register/book.register.controller.js"></script> 
+    <script src="role/role.controller.js"></script> 
+    <script src="role/update-role.controller.js"></script> 
+    <script src="issue-books/issue-books.controller.js"></script> 
+    <script src="issue-books/see.issued-books.controller.js"></script>  
+    <script src="forget-password/forget-password.controller.js"></script> 
+</body>
+</html>  
+</head>
+<body>
+
+
+    
