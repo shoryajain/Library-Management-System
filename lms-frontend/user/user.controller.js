@@ -36,7 +36,7 @@
             BookService.GetByBookname(searchparam, function(response) {
                 $rootScope.books = response.data;
                 if($rootScope.books!="") {
-                    $location.path('/user/search/byname');
+                    $location.path('/user/search/byauth');
                 }
                 else {
                     FlashService.Error('Book does not exist');

@@ -31,7 +31,7 @@
  
         function userupdate() {
             vm.dataLoading = true;
-                    UserService.Update(vm.user, function (response) {
+                    UserService.Update(vm.user.uname, vm.user, function (response) {
                         if(response.success) {
                             FlashService.Success('Details Succesfully Updated');
                             $location.path('/');
