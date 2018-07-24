@@ -1,0 +1,39 @@
+<head>
+            <br>
+        </head>
+        <body>
+                <div class="row">
+                        <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <div ng-repeat="author in vm.allauthors">
+                                <li><button class="btn btn-info" ng-click="vm.getAllBooksByAuthor(author)">{{author}}</button></li><br>
+                            </div>
+                        </ul>
+                </div>
+                <div class="col-md-6" ng-show="vm.check">
+                        <table class="table table-bordered table-hover table-responsive table-striped">
+                                <th>Name</th>
+                                <th>Author's Name</th>
+                                <th>Language</th>
+                                <th>ISBN</th>
+                                <th>Genre</th>
+                                <th>Edition</th>
+                                <th>Copies</th>
+                                <th>Issued Copies</th>
+                
+                             <tr ng-repeat="book in vm.allBooks">  
+                                <td>{{book.name}}</td>
+                                <td>{{book.author.name}}</td>
+                                <td>{{book.lang}}</td>
+                                <td>{{book.isbn}}</td>
+                                <td>{{book.genre}}</td>
+                                <td>{{book.edition}}</td>
+                                <td>{{book.copies}}</td>
+                                <td>{{book.icopies}}</td>
+                             </tr>
+                        </table>
+                     
+        </div>
+        <p class="alignright"><a href="#!/login" class="btn btn-primary">Logout</a></p>
+        </div>        
+        </body>

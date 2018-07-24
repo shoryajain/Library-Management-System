@@ -46,7 +46,7 @@
                         });                     
                     })();
         } 
-        function Update(user, callback) {
+        function Update(uname, user, callback) {
             (function() {$http.put('http://localhost:8080/updateuser' , {uname:uname, user:user})
                         .then(function(response) {
                             callback(response);
