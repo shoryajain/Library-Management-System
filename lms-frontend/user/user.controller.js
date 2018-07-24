@@ -9,9 +9,9 @@
     function HomeController(UserService, BookService, FlashService, $rootScope, $location) {
         var vm = this;
 
+        vm.searchname = searchname;
         vm.searchauthor = searchauthor;
         vm.searchlang = searchlang;
-        vm.searchname = searchname;
         vm.deleteUser = deleteUser;
 
         function deleteUser() {
@@ -36,7 +36,7 @@
             BookService.GetByBookname(searchparam, function(response) {
                 $rootScope.books = response.data;
                 if($rootScope.books!="") {
-                    $location.path('/user/search/byauth');
+                    $location.path('/user/search/byname');
                 }
                 else {
                     FlashService.Error('Book does not exist');

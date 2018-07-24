@@ -13,7 +13,6 @@
         service.GetByBookname = GetByBookname;
         service.GetBookByAuthorname = GetBookByAuthorname;
         service.GetBookByLanguage = GetBookByLanguage;
-        service.GetBookByGenre = GetBookByGenre;
         service.GetAllGenres = GetAllGenres;
         service.GetAllAuthors = GetAllAuthors;
         service.GetTotalBooks = GetTotalBooks;
@@ -48,13 +47,6 @@
         }
         function GetBookByLanguage(lang, callback) {
             (function() {$http.get('http://localhost:8080/book/lang' ,{params: {lang: lang}})
-                        .then(function(response) {
-                            callback(response);
-                        });                     
-                    })();
-        }
-        function GetBookByGenre(genre, callback) {
-            (function() {$http.get('http://localhost:8080/book/genre' ,{params: {genre: genre}})
                         .then(function(response) {
                             callback(response);
                         });                     
