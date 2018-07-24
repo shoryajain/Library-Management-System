@@ -1,25 +1,36 @@
-﻿<head>
-    <br>
-</head>
-<table class="table table-bordered table-hover table-responsive table-striped">
-                <th>Book Name</th>
-                <th>Author</th>
-                <th>Language</th>
-                <th>ISBN</th>
-                <th>Genre</th>
-                <th>Edition</th>
-
-             <tr ng-repeat="book in vm.books">  
-                <td>{{book.name}}</td>
-                <td>{{book.author.name}}</td>
-                <td>{{book.lang}}</td>
-                <td>{{book.isbn}}</td>
-                <td>{{book.genre}}</td>
-                <td>{{book.edition}}</td>
-             </tr>
-        </table>
-        <p>&nbsp;</p>
-        <p class="alignleft" ng-show="vm.check1"><a href="#!/user" class="btn btn-primary">Go Back</a></p>
-        <p class="alignleft" ng-hide="vm.check1"><a href="#!/admin" class="btn btn-primary">Go Back</a></p>
-        <p class="alignright"><a href="#!/login" class="btn btn-primary">Logout</a></p>
-        
+﻿<div class="col-md-6 col-md-offset-3">
+    <h2>Book Details</h2>
+    <form name="form" ng-submit="vm.bookupdate()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" ng-readonly="true" ng-model="vm.books.name" />
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.lang.$dirty && form.lang.$error.required }">
+            <label for="authname">Author's Name</label>
+            <input type="text" name="authname" id="authname" class="form-control" ng-readonly="true" ng-model="vm.books.author.name" />
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.lang.$dirty && form.lang.$error.required }">
+            <label for="lang">Language</label>
+            <input type="text" name="lang" id="lang" class="form-control" ng-readonly="true" ng-model="vm.books.lang" />
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.isbn.$dirty && form.isbn.$error.required }">
+            <label for="isbn">ISBN</label>
+            <input type="text" name="isbn" id="isbn" class="form-control" ng-readonly="true" ng-model="vm.books.isbn" />
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.genre.$dirty && form.genre.$error.required }">
+            <label for="genre">Genre</label>
+            <input type="text" name="genre" id="genre" class="form-control" ng-readonly="true" ng-model="vm.books.genre" />
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.edition.$dirty && form.edition.$error.required }">
+            <label for="edition">Edition</label>
+            <input type="text" name="edition" id="edition" class="form-control" ng-readonly="true" ng-model="vm.books.edition" />
+        </div>
+        <div ng-show="vm.check1">
+            <p><a href="#!/user" class="btn btn-primary">Go Back</a></p>
+        </div>
+        <div ng-hide="vm.check1">
+            <p><a href="#!/admin" class="btn btn-primary">Go Back</a></p>
+        </div>
+    </div>
+    </form>
+</div>

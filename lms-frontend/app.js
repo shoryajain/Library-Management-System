@@ -33,21 +33,9 @@
                 controllerAs: 'vm'
             })
 
-            .when('/user/search/byname/selection', {
-                controller: 'IssueBooksController',
-                templateUrl: 'issue-books/user.search.book.selection.html',
-                controllerAs: 'vm'
-            })
-
             .when('/user/issue', {
                 controller: 'IssueBooksController',
                 templateUrl: 'issue-books/issue-books.view.html',
-                controllerAs: 'vm'
-            })
-
-            .when('/user/issue/results', {
-                controller: 'IssueBooksController',
-                templateUrl: 'issue-books/user.search.book.selection.html',
                 controllerAs: 'vm'
             })
 
@@ -201,16 +189,10 @@
                 controllerAs: 'vm'
             })
 
-            .when('/explore-author',{
-                controller: 'BookExploreController',
-                templateUrl: 'book/book.explore.author.view.html',
-                controllerAs: 'vm'
-            })
-
-            .when('/explore-genre',{
-                controller: 'BookExploreController',
-                templateUrl: 'book/book.explore.genre.view.html',
-                controllerAs: 'vm'
+            .when('/test',{
+           
+                templateUrl: 'book/genre.html'
+               
             })
 
             .otherwise({ redirectTo: '/login' });

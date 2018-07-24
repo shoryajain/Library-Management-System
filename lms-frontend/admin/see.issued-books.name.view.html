@@ -1,0 +1,40 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <h2>Issued Books</h2>
+    <form name="form" ng-submit="vm.byAuthor()" role="form">
+        <div ng-hide="vm.check">
+            <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" ng-model="vm.name" required />
+                <span ng-show="form.name.$dirty && form.name.$error.required" class="help-block">Name is required</span>
+            </div>
+            <div class="form-actions">
+                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">See Issued Books</button>
+                <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                <a href="#!/admin" class="btn btn-link">Cancel</a>
+            </div>
+        </div>
+        <div ng-show="vm.check">
+            <table class="table table-bordered table-hover table-responsive table-striped">
+                            <th>Name</th>
+                            <th>Author's Name</th>
+                            <th>Language</th>
+                            <th>Genre</th>
+                            <th>Edition</th>
+            
+                         <tr ng-repeat="book in vm.details">  
+                            <td>{{book.name}}</td>
+                            <td>{{book.author.name}}</td>
+                            <td>{{book.lang}}</td>
+                            <td>{{book.genre}}</td>
+                            <td>{{book.edition}}</td>
+                         </tr>
+                    </table>
+                    <p>&nbsp;</p>
+            <div>
+                <p class="alignleft"><a href="#!/admin" class="btn btn-primary">Back to Home Page</a></p>
+                <p class="alignright"><a href="#!/issued-books-name" class="btn btn-primary">Check for another book</a></p>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </form>
+</div>
