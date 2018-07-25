@@ -12,7 +12,7 @@
         vm.seeibooks = seeibooks;
         
         initController();
-
+        
         function initController() {
             if($rootScope.globals.currentUser.role== "USER" || $rootScope.globals.currentUser.role=="user") {
                 vm.dataLoading = true;

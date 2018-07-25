@@ -82,7 +82,7 @@
             })
 
             .when('/admin/users', {
-                controller: 'AdminHomeController',
+                controller: 'GetAllUsersController',
                 templateUrl: 'admin/admin.users.view.html',
                 controllerAs: 'vm'
             })
