@@ -230,6 +230,18 @@
                 $location.path('/login');
             }
         }); 
+        
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            // redirect to user landing page if not logged in as admin and trying to access a restricted page
+            var restrictedPage = $.inArray($location.path(), ['/login', '/register-user', '/forget-password','/user','/explore-genre','/explore-author','/user/issue/results','/user/search/byname/selection','/user-update','/view-author','/view-book','/user/genres','/user/authors','/user/search/byname','/user/issue','/user/seeissued','/user/search/byauth','/user/search/bylang']) === -1;
+            var loggedIn = $rootScope.globals.currentUser;
+            var role = $rootScope.globals.currentUser.role;
+            if (restrictedPage && (role=="user" || role=="USER") && loggedIn) {
+                $location.path('/user');
+            }
+        }); 
     }
 
 })();
+
+
