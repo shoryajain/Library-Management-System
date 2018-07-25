@@ -11,21 +11,24 @@
 
         vm.seeibooks = seeibooks;
         
-        function seeibooks() {
-            vm.dataLoading = true;
-            vm.seeibooks.role = $rootScope.globals.currentUser.role;
-            if(role == "USER" || role=="user") {
+        initController();
+        
+        function initController() {
+            if($rootScope.globals.currentUser.role== "USER" || $rootScope.globals.currentUser.role=="user") {
+                vm.dataLoading = true;
                 vm.check = true;
                 UserService.GetUserBooks($rootScope.globals.currentUser.username, function (response) {
                     vm.details = response.data;
                     });
             }
-            else {
-                vm.check = false;
-                UserService.GetUserBooks(vm.seeibooks.uname, function (response) {
-                    vm.details = response.data;
-                    });
-            }
+        }
+
+        function seeibooks() {
+            vm.dataLoading = true;
+            vm.check = false;
+            UserService.GetUserBooks(vm.seeibooks.uname, function (response) {
+                vm.details = response.data;
+                });
             }
         }
 
