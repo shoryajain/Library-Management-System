@@ -10,17 +10,20 @@
         var vm = this;
 
         vm.register = register;
-
         vm.unamecheck = unamecheck;
-
         vm.userupdate = userupdate;
-
         vm.alldetails = alldetails;
 
         initController();
 
         function initController() {
             alldetails();
+            if($rootScope.globals.currentUser.role=="user" || $rootScope.globals.currentUser.role=="USER") {
+                vm.cancel = true;
+            }
+            else {
+                vm.cancel = false;
+            }
         }
 
         function alldetails () {
@@ -43,6 +46,7 @@
                     });
             vm.dataLoading = false;    
         }
+
         function unamecheck() {
             vm.dataLoad = true;
             UserService.CheckUname(vm.user.uname, function (response) {
