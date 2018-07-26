@@ -25,7 +25,7 @@ You will need to add a user with role admin manually using Postman or SQL as the
 ##Built Using
 * Spring Tool Suite-IDE
 * Spring Boot-Framework
-* Maven-Build Dependecy
+* Maven-Build Dependency
 * Postman- Request Generation
 * MySQL-Databse
 * AngularJS- UI
