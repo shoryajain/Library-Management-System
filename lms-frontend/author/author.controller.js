@@ -30,7 +30,7 @@
                     vm.id = response.data.id;
                     AuthorService.Delete(vm.id, function(response) {
                         if(response.data=="") {
-                            FlashService.Success('Author deleted');
+                            FlashService.Success('Author deleted', true);
                             $location.path('/admin');
                         }
                         else {

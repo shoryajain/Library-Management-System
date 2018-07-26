@@ -13,12 +13,11 @@
         vm.bookupdate = bookupdate;
         vm.alldetails = alldetails;
         vm.checking = checking;
-        vm.book = [];
         var id;
 
         function alldetails () {
             vm.dataLoad = true;
-            BookService.GetByBookname(vm.book.name, function (response) {
+            BookService.GetOneBook(vm.book.name, function (response) {
                 if (response.data!="") {
                     vm.check = true;
                     vm.book = response.data;
@@ -33,14 +32,14 @@
             vm.dataLoading = true;
                     BookService.Update(vm.book, function (response) {
                         if(response.data=="") {
-                            FlashService.Success('Details Succesfully Updated');
+                            FlashService.Success('Details Succesfully Updated', true);
                             $location.path('/admin');
                         }
                         else {
                             FlashService.Error('Details could not be updated. Please try again');
-                            $location.path('/book-update');
+                            $location.path('/author-update');
                         }
-                    });
+                    })
             vm.dataLoading = false;    
         }
 
@@ -56,6 +55,7 @@
                 }
             });
         }
+
         function checking(authname) {
             vm.dataLoad = true;
             AuthorService.GetByAuthorname(vm.auth, function (response) {

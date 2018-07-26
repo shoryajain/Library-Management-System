@@ -11,6 +11,7 @@
 
         service.GetAll = GetAll;
         service.GetByBookname = GetByBookname;
+        service.GetOneBook = GetOneBook;
         service.GetBookByAuthorname = GetBookByAuthorname;
         service.GetBookByLanguage = GetBookByLanguage;
         service.GetBookByGenre = GetBookByGenre;
@@ -33,6 +34,13 @@
                     })();
         }
         function GetByBookname(name, callback) {
+            (function() {$http.get('http://localhost:8080/book/name/search' ,{params: {name: name}})
+                        .then(function(response) {
+                            callback(response);
+                        });                     
+                    })();
+        }
+        function GetOneBook(name, callback) {
             (function() {$http.get('http://localhost:8080/book/name' ,{params: {name: name}})
                         .then(function(response) {
                             callback(response);
@@ -129,7 +137,7 @@
         function Update(book, callback) {
             (function() {$http({
                             method: 'PUT',
-                            url: 'http://localhost:8080/admin/updatebook',
+                            url: 'http://localhost:8080/admin/updatebook/' + book.author.id,
                             data: { "author_id" : book.author.id,
                                     "id" : book.id,
                                     "name" : book.name,

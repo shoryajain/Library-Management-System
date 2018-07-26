@@ -23,9 +23,14 @@ public class BookController {
 		return bookService.getAllBooks();
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value="/book/name")
+	@RequestMapping(method = RequestMethod.GET, value="/book/name/search")
 	public List<Book> getBookByName(@RequestParam String name) {
 		return bookService.getBookByName(name);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value="/book/name")
+	public Book getOneBookByName(@RequestParam String name) {
+		return bookService.getOneBookByName(name);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="/book/author")
@@ -83,9 +88,9 @@ public class BookController {
 		bookService.addBook(book, authorId);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/admin/updatebook")
-	public void updateBook(@RequestBody Book book) {
-		bookService.updateBook(book);
+	@RequestMapping(method=RequestMethod.PUT, value="/admin/updatebook/{authorId}")
+	public void updateBook(@RequestBody Book book, @PathVariable Long authorId) {
+		bookService.updateBook(book, authorId);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/admin/deletebook")

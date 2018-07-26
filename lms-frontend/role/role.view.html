@@ -1,5 +1,6 @@
 ﻿<div class="col-md-6 col-md-offset-3">
     <h2>View User Role</h2>
+    <div ng-hide="vm.check">
     <form name="form" ng-submit="vm.getrole()" role="form">
         <div class="form-group" ng-class="{ 'has-error': form.uname.$dirty && form.uname.$error.required }">
             <label for="uname">Username</label>
@@ -12,27 +13,22 @@
             <p class="alignleft"><a href="#!/admin" class="btn btn-link">Cancel</a></p>
         </div>
         </form>
+    </div>
         <div ng-show="vm.check">
-            <h3>Role for Username {{vm.ur.uname}}</h3>
-            <div class="col-md-6 col-md-offset-3">
-                <form name="form" role="form">
-                    <div class="form-group" ng-class="{ 'has-error': form.fname.$dirty && form.fname.$error.required }">
-                        <label for="fname">First name</label>
-                        <input type="text" name="fname" id="fname" class="form-control" ng-model="vm.ur.fname" ng-readonly="true" required />
-                    </div>
-                    <div class="form-group" ng-class="{ 'has-error': form.lname.$dirty && form.lname.$error.required }">
-                        <label for="lname">Last name</label>
-                        <input type="text" name="lname" id="lname" class="form-control" ng-model="vm.ur.lname" ng-readonly="true" />
-                    </div>
-                    <div class="form-group" ng-class="{ 'has-error': form.role.$dirty && form.role.$error.required }">
-                        <label for="role">Role</label>
-                        <input type="text" name="role" id="role" class="form-control" ng-model="vm.ur.role" ng-readonly="true"/>
-                    </div>
-                    <div>
-                        <p class="alignleft"><a href="#!/admin" class="btn btn-primary">Go Back</a></p>
-                    </div>
-                </form>
-            </div>            
+            <table class="table table-bordered table-hover table-responsive">
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Role</th>
+
+             <tr> 
+                <td>{{vm.ur.fname}}</td>
+                <td>{{vm.ur.lname}}</td>
+                <td>{{vm.ur.role}}</td>
+             </tr>
+            </table> 
+            <div>
+                <p class="alignleft"><a href="#!/admin" class="btn btn-primary">Go Back</a></p>
+            </div>       
         </div>
     </form>
 </div>
