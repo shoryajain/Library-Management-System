@@ -1,4 +1,4 @@
-#Back-End: Library Management System
+#Library Management System
 
 A fully functional library management system, with database connections, CRUD functions, search functions, login page and verification functions on different parameters. 
 
