@@ -11,39 +11,42 @@
             <a href="#!/admin/inventory" class="btn btn-link">Cancel</a> 
         </div>
         <div ng-show="vm.check">
-        <div class="form-group" ng-class="{ 'has-error': form.lang.$dirty && form.lang.$error.required }">
-            <label for="lang">Language</label>
-            <input type="text" name="lang" id="lang" class="form-control" ng-readonly="truefalse" ng-model="vm.book.lang" required />
-            <span ng-show="form.lang.$dirty && form.lang.$error.required" class="help-block">Language is required</span>
+            <div class="form-group" ng-class="{ 'has-error': form.lang.$dirty && form.lang.$error.required }">
+                <label for="lang">Language</label>
+                <input type="text" name="lang" id="lang" class="form-control" ng-readonly="truefalse" ng-model="vm.book.lang" required />
+                <span ng-show="form.lang.$dirty && form.lang.$error.required" class="help-block">Language is required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.isbn.$dirty && form.isbn.$error.required }">
+                <label for="isbn">ISBN</label>
+                <input type="text" name="isbn" id="isbn" class="form-control" ng-readonly="truefalse" ng-model="vm.book.isbn" required />
+                <span ng-show="form.isbn.$dirty && form.isbn.$error.required" class="help-block">ISBN is required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.genre.$dirty && form.genre.$error.required }">
+                <label for="genre">Genre</label>
+                <input type="text" name="genre" id="genre" class="form-control" ng-readonly="truefalse" ng-model="vm.book.genre" required />
+                <span ng-show="form.genre.$dirty && form.genre.$error.required" class="help-block">Genre is required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.edition.$dirty && form.edition.$error.required }">
+                <label for="edition">Edition</label>
+                <input type="number" name="edition" id="edition" class="form-control" ng-readonly="truefalse" ng-model="vm.book.edition" required />
+                <span ng-show="form.edition.$dirty && form.edition.$error.required" class="help-block">Edition is required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.copies.$dirty && form.copies.$error.required }">
+                <label for="copies">Copies</label>
+                <input type="number" name="copies" id="copies" class="form-control" ng-readonly="truefalse" ng-model="vm.book.copies" required />
+                <span ng-show="form.copies.$dirty && form.copies.$error.required" class="help-block">Copies are required</span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="id" id="id" class="form-control" ng-readonly="true" ng-model="vm.book.id"/>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="author_id" id="author_id" class="form-control" ng-readonly="true" ng-model="vm.book.author.id"/>
+            </div>
+            <div class="form-actions">
+                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Update</button>
+                <img ng-if="vm.dataLoading" src="data:imedition/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                <a href="#!/admin/inventory" class="btn btn-link">Cancel</a> 
+            </div>
         </div>
-        <div class="form-group" ng-class="{ 'has-error': form.isbn.$dirty && form.isbn.$error.required }">
-            <label for="isbn">ISBN</label>
-            <input type="text" name="isbn" id="isbn" class="form-control" ng-readonly="truefalse" ng-model="vm.book.isbn" required />
-            <span ng-show="form.isbn.$dirty && form.isbn.$error.required" class="help-block">ISBN is required</span>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': form.genre.$dirty && form.genre.$error.required }">
-            <label for="genre">Genre</label>
-            <input type="text" name="genre" id="genre" class="form-control" ng-readonly="truefalse" ng-model="vm.book.genre" required />
-            <span ng-show="form.genre.$dirty && form.genre.$error.required" class="help-block">Genre is required</span>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': form.edition.$dirty && form.edition.$error.required }">
-            <label for="edition">Edition</label>
-            <input type="number" name="edition" id="edition" class="form-control" ng-readonly="truefalse" ng-model="vm.book.edition" required />
-            <span ng-show="form.edition.$dirty && form.edition.$error.required" class="help-block">Edition is required</span>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': form.copies.$dirty && form.copies.$error.required }">
-            <label for="copies">Copies</label>
-            <input type="number" name="copies" id="copies" class="form-control"ng-readonly="truefalse"  ng-model="vm.book.copies" required />
-            <span ng-show="form.copies.$dirty && form.copies.$error.required" class="help-block">Copies are required</span>
-        </div>
-        <div class="form-group">
-            <input type="hidden" name="id" id="id" class="form-control" ng-readonly="true"  ng-model="vm.book.id"/>
-        </div>
-        <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Update</button>
-            <img ng-if="vm.dataLoading" src="data:imedition/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-            <a href="#!/admin/inventory" class="btn btn-link">Cancel</a> 
-        </div>
-    </div>
     </form>
 </div>

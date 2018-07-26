@@ -33,7 +33,7 @@ public class Book {
 		this.icopies = 0;
 	}
 	
-	public Book(int id, String name, String lang, String isbn, String genre, int edition, int copies, Author author) {
+	public Book(long id, String name, String lang, String isbn, String genre, int edition, int copies, Author author) {
 		super();
 		this.id = id;
 		this.name = name;

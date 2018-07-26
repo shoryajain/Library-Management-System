@@ -126,11 +126,12 @@
                     });
                     })();
         }
-        function Update(author, callback) {
+        function Update(book, callback) {
             (function() {$http({
                             method: 'PUT',
                             url: 'http://localhost:8080/admin/updatebook',
-                            data: { "id" : book.id,
+                            data: { "author_id" : book.author.id,
+                                    "id" : book.id,
                                     "name" : book.name,
                                     "lang" : book.lang,
                                     "isbn" : book.isbn,
