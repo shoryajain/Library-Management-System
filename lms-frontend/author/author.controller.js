@@ -29,7 +29,7 @@
                 if(response.data!="") {
                     vm.id = response.data.id;
                     AuthorService.Delete(vm.id, function(response) {
-                        if(response.success) {
+                        if(response.data=="") {
                             FlashService.Success('Author deleted');
                         }
                         else {

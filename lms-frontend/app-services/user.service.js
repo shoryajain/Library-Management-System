@@ -38,14 +38,22 @@
                         });                     
                     })();
         } 
-        
         function Create(user, callback) {
-            (function() {$http.post('http://localhost:8080/adduser' , {user:user})
-                        .then(function(response) {
-                            callback(response);
-                        });                     
+            (function() {$http({
+                            method: 'POST',
+                            url: 'http://localhost:8080/adduser',
+                            data: { "uname" : user.uname, 
+                                    "pass" : user.pass,
+                                    "fname" : user.fname,
+                                    "lname" : user.lname,
+                                    "age" : user.age,
+                                    "pno" : user.pno,
+                                    "email" : user.email
+                             },
+                            headers: {'Content-Type': 'application/json'}
+                    });
                     })();
-        } 
+        }
         function Update(uname, user, callback) {
             (function() {$http.put('http://localhost:8080/updateuser' , {uname:uname, user:user})
                         .then(function(response) {

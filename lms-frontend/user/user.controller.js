@@ -18,7 +18,7 @@
             UserService.GetByUsername(vm.uname, function(response) {
                 if(response.data!="") {
                     UserService.Delete(vm.uname, function(response) {
-                        if(response.success) {
+                        if(response.data=="") {
                             FlashService.Success('User deleted');
                         }
                         else {
