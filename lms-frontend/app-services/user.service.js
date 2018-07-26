@@ -129,17 +129,13 @@
                     })();
         }
         function UserIssueBook(uname, name, callback) {
-            (function() {$http({
-                            method: 'PUT',
-                            url: 'http://localhost:8080/user/newbook/' +uname,
-                            data: { "name" : name
-                             },
-                            headers: {'Content-Type': 'application/json'}
-                    }).then(function(response) {
+            (function() {$http.put('http://localhost:8080/user/newbook/' +uname+'/'+name)
+                        .then(function(response) {
                             callback(response);
-                    });
+                        });                     
                     })();
         }
+
     }
 
 })();

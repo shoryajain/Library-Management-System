@@ -66,8 +66,8 @@ public class UserController {
 		userService.addUser(user);
 	} 
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/user/newbook/{uname}") 
-	public boolean issueBook(@RequestBody String name, @PathVariable String uname) {
+	@RequestMapping(method=RequestMethod.PUT, value="/user/newbook/{uname}/{name}") 
+	public boolean issueBook(@PathVariable String name, @PathVariable String uname) {
 		return userService.issueBook(name, uname);
 	} 
 	
