@@ -14,7 +14,7 @@
             vm.dataLoading = true;
             vm.book.uname = $rootScope.globals.currentUser.username;
             UserService.UserIssueBook(vm.book.uname, vm.book.bname, function (response) {
-                if (response.data=="") {
+                if (response.data) {
                     FlashService.Success('Book Issued Successfully', true);
                     $location.path('/user');
                 } else {

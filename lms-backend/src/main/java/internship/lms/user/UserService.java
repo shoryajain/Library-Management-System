@@ -4,14 +4,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import internship.lms.book.Book;
-import internship.lms.book.BookRepository;
-
-
+import internship.lms.book.BookService;
 
 @Service
 public class UserService {
@@ -20,7 +16,7 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	@Autowired
-	private BookRepository br;
+	private BookService bs;
 	
 	public boolean checkUserPno(long pno) {
 		Set<Long> pnos = this.getPnoOnly();
@@ -83,15 +79,14 @@ public class UserService {
 	}
 
 	public boolean issueBook(String bname, String uname) {
-		if(br.findByName(bname).getCopies()>br.findByName(bname).getIcopies()){
+		if(bs.getOneBookByName(bname).getCopies()>bs.getOneBookByName(bname).getIcopies()){
 			User u = userRepository.findOne(uname);
-			u.issuingBook(br.findByName(bname));
+			u.issuingBook(bs.getOneBookByName(bname));
 			userRepository.save(u);
-			br.findByName(bname).issueCopy();
-			br.save(br.findByNameContaining(bname));
+			bs.getOneBookByName(bname).issueCopy();
+			bs.updateBook(bs.getOneBookByName(bname), bs.getOneBookByName(bname).getAuthor().getId());
 			return true;
 		}
-		
 		else {
 			return false;
 		}
