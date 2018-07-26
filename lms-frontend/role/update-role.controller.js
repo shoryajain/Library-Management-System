@@ -14,9 +14,9 @@
         function updaterole() {
             vm.dataLoading = true;
             UserService.UpdateUserRole(vm.ur.uname, "ADMIN", function (response) {
-                if (response.data) {
+                if (response.data=="") {
                     FlashService.Success('Role Updated Successfully', true);
-                    //set right $location.path('/login');
+                    $location.path('/admin');
                 } else {
                         FlashService.Error('Role could not be issued. Please try again');
                         vm.dataLoading = false;

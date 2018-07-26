@@ -10,12 +10,11 @@
         var vm = this;
 
         vm.register = register;
-
         vm.bookupdate = bookupdate;
-
         vm.alldetails = alldetails;
-
         vm.checking = checking;
+        vm.book = [];
+        var id;
 
         function alldetails () {
             vm.dataLoad = true;
@@ -25,7 +24,6 @@
                     vm.book = response.data;
                 } else {
                     FlashService.Error("Book doesn't exist");
-                    $location.path('/book-update');
                 }
             vm.dataLoad = false;
             });
@@ -33,10 +31,10 @@
  
         function bookupdate() {
             vm.dataLoading = true;
-                    BookService.Update(book, function (response) {
-                        if(response.success) {
+                    BookService.Update(vm.book, function (response) {
+                        if(response.data=="") {
                             FlashService.Success('Details Succesfully Updated');
-                            $location.path('/');
+                            $location.path('/admin');
                         }
                         else {
                             FlashService.Error('Details could not be updated. Please try again');
@@ -48,10 +46,10 @@
 
         function register() {
             vm.dataLoading = true;
-            BookService.Create(vm.book, vm.auth.id, function (response) {
-                if (response.success) {
+            BookService.Create(vm.book, id, function (response) {
+                if (response.data=="") {
                     FlashService.Success('Book registration successful', true);
-                    $location.path('/login');
+                    $location.path('/admin');
                 } else {
                     FlashService.Error('Registration unsuccessful. Please try again');
                     vm.dataLoading = false;
@@ -62,7 +60,7 @@
             vm.dataLoad = true;
             AuthorService.GetByAuthorname(vm.auth, function (response) {
                 if (response.data!="") {
-                    vm.id = response.data.id;
+                    id = response.data.id;
                     vm.check=true;
                 } else {
                     FlashService.Error('Author does not exist. Please add author first.');

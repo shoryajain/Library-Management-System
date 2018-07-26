@@ -29,17 +29,8 @@
         
         function register() {
             vm.dataLoading = true;
-            var fuser = {
-                uname: vm.user.uname,
-                pass: vm.user.pass, 
-                fname: vm.user.fname,
-                lname: vm.user.lname,
-                age: vm.user.age,
-                email: vm.user.email,
-                pno: vm.user.pno
-            };
-            UserService.Create(fuser, function (response) {
-                if (response.success) {
+            UserService.Create(vm.user, function (response) {
+                if (response.data=="") {
                     FlashService.Success('Registration successful', true);
                     $location.path('/login');
                 } else {

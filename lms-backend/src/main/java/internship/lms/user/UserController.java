@@ -3,7 +3,7 @@ package internship.lms.user;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -61,24 +61,24 @@ public class UserController {
 		return userService.authentication(username,password);
 	}
 	
-	@PostMapping("/adduser") 
+	@RequestMapping(method=RequestMethod.POST, value="/adduser") 
 	public void addUser(@RequestBody User user) {
 		userService.addUser(user);
 	} 
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/user/newbook") 
-	public boolean issueBook(@RequestParam String bname, @RequestParam String uname) {
+	@RequestMapping(method=RequestMethod.PUT, value="/user/newbook/{uname}") 
+	public boolean issueBook(@RequestBody String bname, @PathVariable String uname) {
 		return userService.issueBook(bname,uname);
 	} 
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/updateuser")
-	public void updateUser(@RequestParam String uname, @RequestBody User user) {
+	public void updateUser(@RequestBody User user) {
 		userService.updateUser(user);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/admin/role")
-	public void updateRole(@RequestParam String role, @RequestParam String username) {
-		userService.updateRole(role, username);
+	@RequestMapping(method=RequestMethod.PUT, value="/admin/role/{uname}")
+	public void updateRole(@RequestBody String role, @PathVariable String uname) {
+		userService.updateRole(role, uname);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/deleteuser")

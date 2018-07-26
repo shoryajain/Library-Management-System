@@ -31,6 +31,7 @@
                     BookService.Delete(vm.id, function(response) {
                         if(response.data=="") {
                             FlashService.Success('Book deleted');
+                            $location.path('/admin');
                         }
                         else {
                             FlashService.Error('Book could not be deleted. Please try again');
