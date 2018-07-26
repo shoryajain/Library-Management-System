@@ -128,11 +128,11 @@
                     });
                     })();
         }
-        function UserIssueBook(uname, bname, callback) {
+        function UserIssueBook(uname, name, callback) {
             (function() {$http({
                             method: 'PUT',
                             url: 'http://localhost:8080/user/newbook/' +uname,
-                            data: { "bname" : bname
+                            data: { "name" : name
                              },
                             headers: {'Content-Type': 'application/json'}
                     }).then(function(response) {

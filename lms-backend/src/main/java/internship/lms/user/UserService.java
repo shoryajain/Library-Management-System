@@ -78,13 +78,13 @@ public class UserService {
 		return userRepository.findOne(uname).getBooks();
 	}
 
-	public boolean issueBook(String bname, String uname) {
-		if(bs.getOneBookByName(bname).getCopies()>bs.getOneBookByName(bname).getIcopies()){
+	public boolean issueBook(String name, String uname) {
+		if(bs.getOneBookByName(name).getCopies()>bs.getOneBookByName(name).getIcopies()){
 			User u = userRepository.findOne(uname);
-			u.issuingBook(bs.getOneBookByName(bname));
+			u.issuingBook(bs.getOneBookByName(name));
 			userRepository.save(u);
-			bs.getOneBookByName(bname).issueCopy();
-			bs.updateBook(bs.getOneBookByName(bname), bs.getOneBookByName(bname).getAuthor().getId());
+			bs.getOneBookByName(name).issueCopy();
+			bs.updateBook(bs.getOneBookByName(name), bs.getOneBookByName(name).getAuthor().getId());
 			return true;
 		}
 		else {
