@@ -30,7 +30,7 @@
                      vm.id = response.data.id;
                     BookService.Delete(vm.id, function(response) {
                         if(response.data=="") {
-                            FlashService.Success('Book deleted');
+                            FlashService.Success('Book deleted', true);
                             $location.path('/admin');
                         }
                         else {

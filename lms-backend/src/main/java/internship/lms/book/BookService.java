@@ -29,6 +29,10 @@ public class BookService {
 		return bookRepository.findByNameContaining(name);
 	}
 	
+	public Book getOneBookByName(String name) {
+		return bookRepository.findByName(name);
+	}
+	
 	public List<Book> getBookByAuthorName(String name) {
 		return bookRepository.findByauthorNameContaining(name);
 		 
@@ -39,7 +43,8 @@ public class BookService {
 		bookRepository.save(book);
 	}
 	
-	public void updateBook(Book book) {
+	public void updateBook(Book book, long authorId) {
+		book.setAuthor(as.getAuthor(authorId));
 		bookRepository.save(book);
 	}
 	

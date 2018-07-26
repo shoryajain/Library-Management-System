@@ -31,7 +31,7 @@
             vm.dataLoading = true;
                     AuthorService.Update(vm.author, function (response) {
                         if(response.data=="") {
-                            FlashService.Success('Details Succesfully Updated');
+                            FlashService.Success('Details Succesfully Updated', true);
                             $location.path('/admin');
                         }
                         else {
