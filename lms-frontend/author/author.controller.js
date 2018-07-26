@@ -29,8 +29,9 @@
                 if(response.data!="") {
                     vm.id = response.data.id;
                     AuthorService.Delete(vm.id, function(response) {
-                        if(response.success) {
+                        if(response.data=="") {
                             FlashService.Success('Author deleted');
+                            $location.path('/admin');
                         }
                         else {
                             FlashService.Error('Author could not be deleted. Please ensure all books by this author have been deleted before trying again');

@@ -1,13 +1,10 @@
 package internship.lms.user;
 
 import java.util.List;
-
-
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import internship.lms.book.Book;
 
@@ -26,7 +23,7 @@ public class User {
 	private String email;
 	private String role;
 	
-	@OneToMany
+	@ManyToMany
 	@JoinColumn(name = "book_id", nullable=true)
 	private List<Book> books;
 	

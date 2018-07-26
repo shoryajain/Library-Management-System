@@ -32,17 +32,35 @@
                     })();
         }
         function Create(author, callback) {
-            (function() {$http.post('http://localhost:8080/admin/author' , {author:author})
-                        .then(function(response) {
+            (function() {$http({
+                            method: 'POST',
+                            url: 'http://localhost:8080/admin/author',
+                            data: { "name" : author.name,
+                                    "email" : author.email,
+                                    "age" : author.age,
+                                    "pno" : author.pno,
+                             },
+                            headers: {'Content-Type': 'application/json'}
+                    }).then(function(response) {
                             callback(response);
-                        });                     
+                    });
                     })();
         }
         function Update(author, callback) {
-            (function() {$http.put('http://localhost:8080/admin/updateauthor' , {author:author})
-                        .then(function(response) {
+            (function() {$http({
+                            method: 'PUT',
+                            url: 'http://localhost:8080/admin/updateauthor',
+                            data: { 
+                                    "id" : author.id,
+                                    "name" : author.name,
+                                    "email" : author.email,
+                                    "age" : author.age,
+                                    "pno" : author.pno,
+                             },
+                            headers: {'Content-Type': 'application/json'}
+                    }).then(function(response) {
                             callback(response);
-                        });                     
+                    });
                     })();
         }
         function Delete(id, callback) {

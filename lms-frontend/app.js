@@ -107,7 +107,7 @@
             
             .when('/register-user', {
                 controller: 'RegisterController',
-                templateUrl: 'register/register.view.html',
+                templateUrl: 'register/user.register.view.html',
                 controllerAs: 'vm'
             }) 
 

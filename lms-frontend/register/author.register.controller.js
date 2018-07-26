@@ -10,10 +10,9 @@
         var vm = this;
 
         vm.register = register;
-
         vm.authorupdate = authorupdate;
-
         vm.alldetails = alldetails;
+        vm.author = [];
 
         function alldetails () {
             vm.dataLoad = true;
@@ -30,10 +29,10 @@
  
         function authorupdate() {
             vm.dataLoading = true;
-                    AuthorService.Update(author, function (response) {
-                        if(response.success) {
+                    AuthorService.Update(vm.author, function (response) {
+                        if(response.data=="") {
                             FlashService.Success('Details Succesfully Updated');
-                            $location.path('/');
+                            $location.path('/admin');
                         }
                         else {
                             FlashService.Error('Details could not be updated. Please try again');
@@ -43,13 +42,12 @@
             vm.dataLoading = false;    
         }
 
-
         function register() {
             vm.dataLoading = true;
             AuthorService.Create(vm.author, function (response) {
-                if (response.success) {
+                if (response.data=="") {
                     FlashService.Success('Author registration successful', true);
-                    $location.path('/login');
+                    $location.path('/admin');
                 } else {
                     FlashService.Error('Registration unsuccessful. Please try again');
                     vm.dataLoading = false;

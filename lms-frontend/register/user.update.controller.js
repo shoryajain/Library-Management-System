@@ -34,10 +34,10 @@
  
         function userupdate() {
             vm.dataLoading = true;
-                    UserService.Update(vm.user.uname, vm.user, function (response) {
-                        if(response.success) {
+                    UserService.Update(vm.user, function (response) {
+                        if(response.data=="") {
                             FlashService.Success('Details Succesfully Updated');
-                            $location.path('/');
+                             $location.path('/login');
                         }
                         else {
                             FlashService.Error('Details could not be updated. Please try again');

@@ -110,18 +110,39 @@
                     })();
         }
         function Create(book, authorId, callback) {
-            (function() {$http.post('http://localhost:8080/admin/addbook' , {params: {book:book, authorId:authorId}})
-                        .then(function(response) {
-                            console.log(response);
+            (function() {$http({
+                            method: 'POST',
+                            url: 'http://localhost:8080/admin/addbook/' + authorId,
+                            data: { "name" : book.name,
+                                    "lang" : book.lang,
+                                    "isbn" : book.isbn,
+                                    "genre" : book.genre,
+                                    "edition" : book.edition,
+                                    "copies" : book.copies
+                             },
+                            headers: {'Content-Type': 'application/json'}
+                    }).then(function(response) {
                             callback(response);
-                        });                     
+                    });
                     })();
         }
         function Update(book, callback) {
-            (function() {$http.put('http://localhost:8080/admin/updatebook' , {book:book})
-                        .then(function(response) {
+            (function() {$http({
+                            method: 'PUT',
+                            url: 'http://localhost:8080/admin/updatebook',
+                            data: { "author_id" : book.author.id,
+                                    "id" : book.id,
+                                    "name" : book.name,
+                                    "lang" : book.lang,
+                                    "isbn" : book.isbn,
+                                    "genre" : book.genre,
+                                    "edition" : book.edition,
+                                    "copies" : book.copies
+                             },
+                            headers: {'Content-Type': 'application/json'}
+                    }).then(function(response) {
                             callback(response);
-                        });                     
+                    });
                     })();
         }
         function Delete(id, callback) {

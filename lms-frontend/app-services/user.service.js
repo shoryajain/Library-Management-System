@@ -38,19 +38,40 @@
                         });                     
                     })();
         } 
-        
         function Create(user, callback) {
-            (function() {$http.post('http://localhost:8080/adduser' , {user:user})
-                        .then(function(response) {
+            (function() {$http({
+                            method: 'POST',
+                            url: 'http://localhost:8080/adduser',
+                            data: { "uname" : user.uname, 
+                                    "pass" : user.pass,
+                                    "fname" : user.fname,
+                                    "lname" : user.lname,
+                                    "age" : user.age,
+                                    "pno" : user.pno,
+                                    "email" : user.email
+                             },
+                            headers: {'Content-Type': 'application/json'}
+                    }).then(function(response) {
                             callback(response);
-                        });                     
+                    });
                     })();
-        } 
-        function Update(uname, user, callback) {
-            (function() {$http.put('http://localhost:8080/updateuser' , {uname:uname, user:user})
-                        .then(function(response) {
+        }
+        function Update(user, callback) {
+            (function() {$http({
+                            method: 'PUT',
+                            url: 'http://localhost:8080/updateuser',
+                            data: { "uname" : user.uname, 
+                                    "pass" : user.pass,
+                                    "fname" : user.fname,
+                                    "lname" : user.lname,
+                                    "age" : user.age,
+                                    "pno" : user.pno,
+                                    "email" : user.email
+                             },
+                            headers: {'Content-Type': 'application/json'}
+                    }).then(function(response) {
                             callback(response);
-                        });                     
+                    });
                     })();
         }
         function Delete(uname, callback) {
@@ -95,21 +116,30 @@
                         });                     
                     })();
         }
-        function UserIssueBook(uname, bname, callback) {
-            (function() {$http.put('http://localhost:8080/user/newbook',{params: {uname: uname, bname:bname}})
-                        .then(function(response) {
-                            callback(response);
-                        });                     
-                    })();
-        }
         function UpdateUserRole(uname, role, callback) {
-            (function() {$http.put('http://localhost:8080/admin/role',{params: {uname: uname, role:role}})
-                        .then(function(response) {
+            (function() {$http({
+                            method: 'PUT',
+                            url: 'http://localhost:8080/admin/role/' +uname,
+                            data: { "role" : role
+                             },
+                            headers: {'Content-Type': 'application/json'}
+                    }).then(function(response) {
                             callback(response);
-                        });                     
+                    });
                     })();
         }
-
+        function UserIssueBook(uname, bname, callback) {
+            (function() {$http({
+                            method: 'PUT',
+                            url: 'http://localhost:8080/user/newbook/' +uname,
+                            data: { "bname" : bname
+                             },
+                            headers: {'Content-Type': 'application/json'}
+                    }).then(function(response) {
+                            callback(response);
+                    });
+                    })();
+        }
     }
 
 })();
