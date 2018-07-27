@@ -19,7 +19,7 @@
                 if(response.data!="") {
                     UserService.Delete(vm.uname, function(response) {
                         if(response.data=="") {
-                            FlashService.Success('User deleted');
+                            FlashService.Success('User deleted', true);
                             $location.path('/admin');
                         }
                         else {
