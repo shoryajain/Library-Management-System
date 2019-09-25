@@ -1,8 +1,8 @@
-#Library Management System
+# Library Management System
 
 A fully functional library management system, with database connections, CRUD functions, search functions, login page and verification functions on different parameters. 
 
-##Pre-Requisties
+## Pre-Requisties
 * Any IDE 
 * Maven
 * Postman
@@ -12,7 +12,7 @@ A fully functional library management system, with database connections, CRUD fu
 * http-server
 * json-server
 
-##Getting Started
+## Getting Started
 
 To use on a local system, import lms-backend in any IDE of your choice. The database being used here is MySQL. In case you need to use another supported databse, remove the MySQL dependecies from pom.xml and include the dependencies for database you want to use and add the corresponding driver in applications.properties.
 
@@ -22,7 +22,7 @@ Now, build and run the project as a Java application. The application runs on po
 
 You will need to add a user with role admin manually using Postman or SQL as the application is login based and roles cannot to be updated to admin while accessing user interface only does not require a pre recorded record as new users can be created on login page itself.  
 
-##Built Using
+## Built Using
 * Spring Tool Suite-IDE
 * Spring Boot-Framework
 * Maven-Build Dependency
@@ -34,5 +34,5 @@ You will need to add a user with role admin manually using Postman or SQL as the
 * CSS- UI
 * BootStrap- UI
 
-##Author
+## Author
 * **Shorya Jain** - https://github.com/shoryajain 
